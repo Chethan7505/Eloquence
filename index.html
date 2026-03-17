@@ -9,10 +9,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cinzel+Decorative:wght@400;700;900&family=EB+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
   /* ════════════════════════════════════
      TOKENS — Dark Bronze · Gold · Amber
-     Matched to official ELOQUENCE poster
   ════════════════════════════════════ */
   :root {
     --ink:      #080503;
@@ -61,17 +61,15 @@
   }
   body::after {
     content: '';
-    position: fixed; inset: 0; z-index: -1;
-    opacity: .35;
+    position: fixed; inset: 0; z-index: -1; opacity: .35;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.12'/%3E%3C/svg%3E");
-    background-size: 160px;
-    pointer-events: none;
+    background-size: 160px; pointer-events: none;
   }
-  img  { max-width: 100%; height: auto; display: block; }
-  a    { text-decoration: none; color: inherit; }
-  ul   { list-style: none; }
+  img { max-width: 100%; height: auto; display: block; }
+  a { text-decoration: none; color: inherit; }
+  ul { list-style: none; }
   button { font-family: inherit; cursor: pointer; }
-  ::-webkit-scrollbar       { width: 4px; }
+  ::-webkit-scrollbar { width: 4px; }
   ::-webkit-scrollbar-track { background: var(--ink); }
   ::-webkit-scrollbar-thumb { background: linear-gradient(var(--g1),var(--g3)); border-radius: 2px; }
 
@@ -79,39 +77,12 @@
   #sp {
     position: fixed; top: 0; left: 0; width: 0; height: 3px; z-index: 9999;
     background: linear-gradient(90deg, var(--g4), var(--g2), var(--g1), var(--amber));
-    box-shadow: 0 0 14px var(--gg);
-    transition: width .06s linear;
+    box-shadow: 0 0 14px var(--gg); transition: width .06s linear;
   }
-
-  /* ── CANVAS ── */
   #cv { position: fixed; inset: 0; z-index: -2; pointer-events: none; }
 
-  /* ── LAYOUT ── */
-  .mw  { max-width: var(--mw);  margin: 0 auto; }
+  .mw  { max-width: var(--mw); margin: 0 auto; }
   .sec { padding: 108px 28px; }
-
-  /* ── GLASS CARD ── */
-  .gc {
-    background: var(--gl);
-    border: 1px solid var(--glb);
-    border-radius: var(--rr);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    transition: background .3s, border-color .3s, transform .32s cubic-bezier(.22,1,.36,1), box-shadow .32s;
-    position: relative; overflow: hidden;
-  }
-  .gc::before {
-    content: '';
-    position: absolute; inset: 0; z-index: 0;
-    background: linear-gradient(140deg, rgba(245,200,66,.04) 0%, transparent 55%);
-    pointer-events: none;
-  }
-  .gc > * { position: relative; z-index: 1; }
-  .gc:hover {
-    background: var(--glh); border-color: var(--glhb);
-    transform: translateY(-5px);
-    box-shadow: 0 22px 60px rgba(0,0,0,.55), 0 0 0 1px rgba(245,200,66,.1), inset 0 1px 0 rgba(255,255,255,.05);
-  }
 
   /* ── ORNATE CARD ── */
   .oc {
@@ -137,7 +108,7 @@
   .oc:hover {
     border-color: var(--g1);
     box-shadow: 0 28px 70px rgba(0,0,0,.6), 0 0 44px rgba(245,200,66,.12);
-    transform: translateY(-5px);
+    transform: translateY(-4px);
   }
 
   /* ── SCROLL REVEAL ── */
@@ -154,7 +125,6 @@
 
   .sep { height: 1px; background: linear-gradient(90deg, transparent, rgba(196,125,16,.28), transparent); }
 
-  /* ── ORNAMENTAL DIVIDER ── */
   .ornl {
     display: flex; align-items: center; gap: 16px;
     justify-content: center; margin-bottom: 22px;
@@ -165,20 +135,13 @@
     background: linear-gradient(90deg, transparent, var(--g3));
   }
   .ornl::after { background: linear-gradient(270deg, transparent, var(--g3)); }
-  .center .ornl::before { background: linear-gradient(90deg, transparent, var(--g3)); }
 
-  /* ── SECTION TAG ── */
   .stag {
     display: inline-flex; align-items: center; gap: 8px;
-    border: 1px solid rgba(196,125,16,.38);
-    border-radius: 50px; padding: 6px 20px;
-    font-family: var(--fu); font-size: .62rem;
-    letter-spacing: 3.5px; text-transform: uppercase;
-    color: var(--g2); margin-bottom: 16px;
-    background: rgba(196,125,16,.06);
+    border: 1px solid rgba(196,125,16,.38); border-radius: 50px; padding: 6px 20px;
+    font-family: var(--fu); font-size: .62rem; letter-spacing: 3.5px; text-transform: uppercase;
+    color: var(--g2); margin-bottom: 16px; background: rgba(196,125,16,.06);
   }
-
-  /* ── SECTION HEADING ── */
   .sh {
     font-family: var(--fc);
     font-size: clamp(2.1rem, 5vw, 3.35rem);
@@ -188,19 +151,17 @@
   .sh em { font-style: normal; color: var(--g1); }
   .ssub {
     font-family: var(--fb); font-size: 1.08rem; font-style: italic;
-    color: var(--cream-d); max-width: 640px; line-height: 1.88;
-    margin-bottom: 58px; 
+    color: var(--cream-d); max-width: 640px; line-height: 1.88; margin-bottom: 58px;
   }
   .center { text-align: center; }
-  .center .ssub { margin-inline: auto;  }
+  .center .ssub { margin-inline: auto; }
 
-  /* ── BUTTONS ── */
   .btn-g {
     display: inline-flex; align-items: center; gap: 8px;
     background: linear-gradient(135deg, var(--g1) 0%, var(--g2) 50%, var(--g3) 100%);
-    color: var(--ink); padding: 16px 44px;
-    border-radius: 3px; font-family: var(--fc); font-weight: 600;
-    font-size: .78rem; letter-spacing: 2.5px; text-transform: uppercase;
+    color: var(--ink); padding: 16px 44px; border-radius: 3px;
+    font-family: var(--fc); font-weight: 600; font-size: .78rem;
+    letter-spacing: 2.5px; text-transform: uppercase;
     transition: transform .3s, box-shadow .3s, filter .3s;
     box-shadow: 0 6px 28px var(--gg), inset 0 1px 0 rgba(255,255,255,.22);
     border: none; position: relative; overflow: hidden;
@@ -212,23 +173,14 @@
   }
   .btn-g:hover { transform: translateY(-3px); filter: brightness(1.12); box-shadow: 0 14px 44px var(--gg); }
   .btn-g:hover::before { left: 160%; }
-  .btn-o {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: transparent; color: var(--g1); padding: 15px 42px;
-    border-radius: 3px; font-family: var(--fc); font-weight: 600;
-    font-size: .78rem; letter-spacing: 2.5px; text-transform: uppercase;
-    border: 1px solid var(--g2);
-    transition: background .3s, box-shadow .3s, transform .3s;
-  }
-  .btn-o:hover { background: rgba(245,200,66,.08); box-shadow: 0 8px 28px var(--gg-sm); transform: translateY(-3px); }
 
-  /* ══════════════════════════
-     NAVBAR
-  ══════════════════════════ */
+  /* ══════════════════════════════════════
+     NAVBAR — FIX: no overlap on mobile
+  ══════════════════════════════════════ */
   #nav {
     position: fixed; top: 0; left: 0; right: 0;
     height: var(--nav-h); z-index: 1000;
-    padding: 0 32px; display: flex; align-items: center;
+    padding: 0 20px; display: flex; align-items: center;
     justify-content: space-between;
     transition: background .4s, border-color .4s;
     border-bottom: 1px solid transparent;
@@ -239,28 +191,35 @@
     border-bottom-color: rgba(196,125,16,.22);
     box-shadow: 0 4px 44px rgba(0,0,0,.65);
   }
-  .nl { display: flex; align-items: center; gap: 12px; }
-  .nr { display: flex; align-items: center; gap: 14px; }
+  .nl { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+  .nr { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+
+  /* Logo boxes */
   .lbx {
     border-radius: 10px; overflow: hidden;
-    background: rgba(245,200,66,.04);
-    border: 1px solid rgba(196,125,16,.2);
+    background: rgba(245,200,66,.04); border: 1px solid rgba(196,125,16,.2);
     display: flex; align-items: center; justify-content: center;
     flex-shrink: 0; font-family: var(--fu); font-size: 7.5px;
     color: var(--cream-d); text-align: center; line-height: 1.25;
-    padding: 4px; transition: border-color .3s;
+    padding: 3px; transition: border-color .3s;
   }
   .lbx:hover { border-color: var(--g1); }
-  .lbx img   { width: 100%; height: 100%; object-fit: contain; }
-  .lbx-met { width: 60px; height: 60px; }
-  .lbx-mit { width: 52px; height: 52px; }
-  .lbx-elc { width: 46px; height: 46px; }
+  .lbx img { width: 100%; height: 100%; object-fit: contain; }
+  .lbx-met { width: 56px; height: 56px; }
+  .lbx-mit { width: 50px; height: 50px; }
+  .lbx-elc { width: 44px; height: 44px; }
+
+  /* Centre wordmark — desktop only, hidden on mobile */
   .nwm {
     position: absolute; left: 50%; transform: translateX(-50%);
     text-align: center; pointer-events: none;
+    /* prevent overlap by giving it a max-width */
+    max-width: 220px; width: max-content;
   }
-  .nwm-t { font-family: var(--fd); font-size: .75rem; color: var(--g1); letter-spacing: 4px; text-shadow: 0 0 22px var(--gg); display: block; }
-  .nwm-s { font-family: var(--fu); font-size: .5rem; color: var(--cream-d); letter-spacing: 2px; text-transform: uppercase; display: block; margin-top: 2px; }
+  .nwm-t { font-family: var(--fd); font-size: .75rem; color: var(--g1); letter-spacing: 4px; text-shadow: 0 0 22px var(--gg); display: block; white-space: nowrap; }
+  .nwm-s { font-family: var(--fu); font-size: .5rem; color: var(--cream-d); letter-spacing: 2px; text-transform: uppercase; display: block; margin-top: 2px; white-space: nowrap; }
+
+  /* Desktop nav links */
   .nlinks { display: flex; align-items: center; gap: 22px; }
   .nlinks a {
     font-family: var(--fu); font-size: .67rem; font-weight: 600;
@@ -268,8 +227,9 @@
     transition: color .3s; position: relative;
   }
   .nlinks a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 1px; background: var(--g1); transition: width .3s; }
-  .nlinks a:hover  { color: var(--g1); }
+  .nlinks a:hover { color: var(--g1); }
   .nlinks a:hover::after { width: 100%; }
+
   .ncta {
     background: linear-gradient(135deg, var(--g1), var(--g3));
     color: var(--ink); padding: 9px 22px; border-radius: 3px;
@@ -278,7 +238,9 @@
     transition: transform .3s, box-shadow .3s;
     box-shadow: 0 4px 18px var(--gg-sm); white-space: nowrap;
   }
-  .ncta:hover { transform: translateY(-2px); box-shadow: 0 8px 26px var(--gg); }
+  .ncta:hover { transform: translateY(-2px); box-shadow: 0 8px 26px var(--gg)); }
+
+  /* Hamburger */
   .ham {
     display: none; flex-direction: column; gap: 5px;
     padding: 8px; z-index: 1002; border: none; background: none;
@@ -287,23 +249,36 @@
   .ham.on span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
   .ham.on span:nth-child(2) { opacity: 0; }
   .ham.on span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+  /* ── MOBILE DRAWER — FIX: added X close button ── */
   #mnav {
     display: none; position: fixed; inset: 0; z-index: 1001;
     background: rgba(8,5,3,.98); backdrop-filter: blur(32px);
     flex-direction: column; align-items: center; justify-content: center;
-    gap: 28px; opacity: 0; transition: opacity .3s;
+    gap: 24px; opacity: 0; transition: opacity .3s;
   }
   #mnav.on { display: flex; opacity: 1; }
-  #mnav a { font-family: var(--fc); font-size: 1.6rem; color: var(--cream); letter-spacing: 3px; transition: color .3s; }
+  #mnav a { font-family: var(--fc); font-size: 1.55rem; color: var(--cream); letter-spacing: 3px; transition: color .3s; }
   #mnav a:hover { color: var(--g1); }
+
+  /* ✕ Close button inside drawer */
+  #mnav-close {
+    position: absolute; top: 22px; right: 22px;
+    width: 44px; height: 44px; border-radius: 50%;
+    background: rgba(196,125,16,.12); border: 1px solid rgba(196,125,16,.35);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.25rem; color: var(--g1);
+    cursor: pointer; transition: background .3s, transform .3s;
+    font-family: var(--fu); font-weight: 300; line-height: 1;
+  }
+  #mnav-close:hover { background: rgba(196,125,16,.25); transform: rotate(90deg); }
 
   /* ══════════════════════════
      HERO
   ══════════════════════════ */
   #hero {
     min-height: 100vh; display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    text-align: center;
+    align-items: center; justify-content: center; text-align: center;
     padding: calc(var(--nav-h) + 48px) 24px 88px;
     position: relative; overflow: hidden;
   }
@@ -311,8 +286,7 @@
     position: absolute; top: 50%; left: 50%;
     transform: translate(-50%,-50%);
     width: min(960px, 130vw); height: min(960px, 130vw);
-    background: radial-gradient(ellipse 50% 44% at 50% 50%,
-      rgba(196,125,16,.2) 0%, rgba(196,125,16,.08) 28%, transparent 68%);
+    background: radial-gradient(ellipse 50% 44% at 50% 50%, rgba(196,125,16,.2) 0%, rgba(196,125,16,.08) 28%, transparent 68%);
     pointer-events: none; z-index: 0;
     animation: burst 7s ease-in-out infinite alternate;
   }
@@ -324,27 +298,26 @@
   .flt { position: absolute; pointer-events: none; user-select: none; font-size: 4.5rem; opacity: .05; animation: flt 16s ease-in-out infinite; }
   .flt:nth-child(1) { top: 14%; left:  4%; animation-delay: 0s; }
   .flt:nth-child(2) { top: 56%; right: 4%; animation-delay: 6s; font-size: 3.4rem; }
-  .flt:nth-child(3) { top: 80%; left: 11%; animation-delay:11s; font-size: 3rem; }
+  .flt:nth-child(3) { top: 80%; left: 11%; animation-delay: 11s; font-size: 3rem; }
   @keyframes flt {
-    0%,100% { transform: translateY(0)   rotate(-6deg); }
+    0%,100% { transform: translateY(0) rotate(-6deg); }
     50%      { transform: translateY(-30px) rotate(6deg); }
   }
+
+  /* FIX: hero org line — no wrapping, single line on desktop, wraps cleanly on mobile */
   .horg {
     font-family: var(--fu); font-size: .62rem;
-    letter-spacing: 4px; text-transform: uppercase;
-    color: var(--g2); margin-bottom: 30px;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: var(--g2); margin-bottom: 28px;
     animation: fd .9s ease .15s both;
+    line-height: 1.6;
   }
   .horg span { color: var(--amber); }
-  .emblem {
-    display: inline-block; margin-bottom: 26px;
-    animation: fd .9s ease .3s both;
-  }
+
+  .emblem { display: inline-block; margin-bottom: 26px; animation: fd .9s ease .3s both; }
   .emblem::before, .emblem::after {
-    content: '— ✦ —';
-    display: block; text-align: center;
-    font-family: var(--fc); font-size: .72rem;
-    color: var(--g3); letter-spacing: 10px; margin: 6px 0;
+    content: '— ✦ —'; display: block; text-align: center;
+    font-family: var(--fc); font-size: .72rem; color: var(--g3); letter-spacing: 10px; margin: 6px 0;
   }
   .htitle {
     font-family: var(--fd);
@@ -366,19 +339,16 @@
     color: var(--cream-d); letter-spacing: .5px; margin-bottom: 44px;
     animation: fd .9s ease .55s both;
   }
-  /* A3 LANDSCAPE poster — 420:297 */
+
+  /* A3 Landscape poster */
   .poster-w {
-    width: min(700px, 92vw);
-    aspect-ratio: 420 / 297;
-    margin: 0 auto 44px;
-    border-radius: 12px; overflow: hidden;
+    width: min(700px, 92vw); aspect-ratio: 420 / 297;
+    margin: 0 auto 44px; border-radius: 12px; overflow: hidden;
     border: 1px solid rgba(196,125,16,.32);
     box-shadow: 0 0 0 1px rgba(196,125,16,.09), 0 32px 88px rgba(0,0,0,.68), 0 0 66px rgba(196,125,16,.1);
-    animation: fu .9s ease .65s both;
-    position: relative;
+    animation: fu .9s ease .65s both; position: relative;
     background: rgba(20,14,6,.92);
-    display: flex; align-items: center; justify-content: center;
-    flex-direction: column; gap: 10px;
+    display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 10px;
   }
   .poster-w::before {
     content: ''; position: absolute; inset: -1px; border-radius: 13px; z-index: -1;
@@ -389,19 +359,20 @@
   .poster-w img { width: 100%; height: 100%; object-fit: cover; border-radius: 11px; }
   .poster-ph { font-family: var(--fc); font-size: .78rem; letter-spacing: 3px; color: var(--cream-d); }
   .poster-ico { font-size: 2.6rem; opacity: .28; }
+
   /* Countdown */
   .cdw { margin-bottom: 52px; animation: fu .9s ease .8s both; }
   .cdlbl { font-family: var(--fu); font-size: .6rem; letter-spacing: 4px; text-transform: uppercase; color: var(--cream-d); margin-bottom: 20px; }
-  .cd  { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .cd { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
   .cdi {
-    min-width: 84px; background: rgba(196,125,16,.06);
-    border: 1px solid rgba(196,125,16,.24);
+    min-width: 84px; background: rgba(196,125,16,.06); border: 1px solid rgba(196,125,16,.24);
     border-radius: 10px; padding: 16px 18px; text-align: center; position: relative; overflow: hidden;
   }
   .cdi::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--g2), transparent); }
   .cdn { font-family: var(--fd); font-size: 2.05rem; color: var(--g1); display: block; line-height: 1; text-shadow: 0 0 24px var(--gg); }
   .cdu { font-family: var(--fu); font-size: .54rem; letter-spacing: 2.5px; text-transform: uppercase; color: var(--cream-d); margin-top: 7px; display: block; }
   .hctas { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; animation: fu .9s ease 1s both; }
+
   @keyframes fd { from { opacity:0; transform:translateY(-28px); } to { opacity:1; transform:translateY(0); } }
   @keyframes fu { from { opacity:0; transform:translateY(28px);  } to { opacity:1; transform:translateY(0); } }
 
@@ -451,21 +422,23 @@
   }
 
   /* ══════════════════════════
-     GUESTS
+     GUESTS — no avatar icon
   ══════════════════════════ */
   .gg-g { display: grid; grid-template-columns: repeat(3,1fr); gap: 26px; }
-  .gcrd { padding: 44px 28px; text-align: center; }
-  .gav {
-    width: 112px; height: 112px; border-radius: 50%;
-    background: linear-gradient(135deg, rgba(196,125,16,.16), rgba(122,77,6,.1));
-    border: 2px solid rgba(196,125,16,.28);
-    margin: 0 auto 22px; display: flex; align-items: center; justify-content: center;
-    font-size: 2.5rem; overflow: hidden; transition: border-color .3s, box-shadow .3s;
-  }
-  .gcrd:hover .gav { border-color: var(--g1); box-shadow: 0 0 32px var(--gg-sm); }
+  .gcrd { padding: 38px 28px; text-align: center; }
+  /* ── HOW TO REDUCE GUEST CARDS ──
+     To show 2 guests instead of 3, just delete one entire <div class="oc gcrd ..."> block.
+     To show 1 guest, delete two blocks. The grid auto-adjusts.
+     Tip: search for "<!-- GUEST CARD X -->" comments below to find each card.  */
   .grole { font-family: var(--fu); font-size: .6rem; letter-spacing: 3px; text-transform: uppercase; color: var(--amber); margin-bottom: 10px; }
   .gname { font-family: var(--fc); font-size: 1.15rem; font-weight: 700; color: var(--cream); margin-bottom: 8px; }
   .gdesig { font-family: var(--fb); font-style: italic; font-size: .9rem; color: var(--cream-d); line-height: 1.55; }
+
+  /* Gold accent line on guest cards (replaces avatar) */
+  .gcrd-line {
+    width: 48px; height: 2px; margin: 0 auto 22px;
+    background: linear-gradient(90deg, transparent, var(--g1), transparent);
+  }
 
   /* ══════════════════════════
      DETAILS
@@ -483,8 +456,7 @@
   .rlist { display: flex; flex-direction: column; gap: 12px; }
   .ri {
     display: flex; gap: 22px; align-items: flex-start;
-    padding: 20px 26px; border-radius: 12px;
-    border: 1px solid transparent;
+    padding: 20px 26px; border-radius: 12px; border: 1px solid transparent;
     transition: border-color .3s, background .3s;
   }
   .ri:hover { border-color: rgba(196,125,16,.24); background: rgba(196,125,16,.04); }
@@ -494,9 +466,19 @@
   .ha { color: var(--amber); font-style: normal; font-weight: 600; }
 
   /* ══════════════════════════
-     REGISTRATION
+     FACULTY / ORGANISING COMMITTEE
   ══════════════════════════ */
-  .regwrap { max-width: 800px; margin: 0 auto; }
+  .fac-g { display: grid; grid-template-columns: repeat(3,1fr); gap: 26px; }
+  .fac-card { padding: 36px 26px; text-align: center; }
+  .fac-line { width: 44px; height: 2px; margin: 0 auto 18px; background: linear-gradient(90deg, transparent, var(--g2), transparent); }
+  .fac-role { font-family: var(--fu); font-size: .6rem; letter-spacing: 3px; text-transform: uppercase; color: var(--amber); margin-bottom: 8px; }
+  .fac-name { font-family: var(--fc); font-size: 1.05rem; font-weight: 700; color: var(--cream); margin-bottom: 6px; letter-spacing: .3px; }
+  .fac-desig { font-family: var(--fb); font-style: italic; font-size: .88rem; color: var(--cream-d); line-height: 1.55; }
+
+  /* ══════════════════════════
+     REGISTRATION — simplified
+  ══════════════════════════ */
+  .regwrap { max-width: 700px; margin: 0 auto; }
   .regcard { padding: 56px 50px; }
   .regrow  { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 48px; }
   .rgi { text-align: center; }
@@ -504,17 +486,7 @@
   .rgi-lbl { font-family: var(--fu); font-size: .6rem; letter-spacing: 3px; text-transform: uppercase; color: var(--amber); margin-bottom: 8px; }
   .rgi-val { font-family: var(--fd); font-size: 1.68rem; color: var(--g1); }
   .rgi-note { font-family: var(--fb); font-style: italic; font-size: .82rem; color: var(--cream-d); margin-top: 5px; }
-  .regbtns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 50px; }
-  .upizone { border-top: 1px solid rgba(196,125,16,.18); padding-top: 38px; text-align: center; }
-  .upilbl { font-family: var(--fu); font-size: .6rem; letter-spacing: 3px; text-transform: uppercase; color: var(--cream-d); margin-bottom: 22px; }
-  .qrb {
-    width: 170px; height: 170px; background: rgba(196,125,16,.06);
-    border: 2px dashed rgba(196,125,16,.28); border-radius: 14px;
-    margin: 0 auto 18px; display: flex; flex-direction: column;
-    align-items: center; justify-content: center; gap: 8px;
-    font-family: var(--fu); font-size: .74rem; color: var(--cream-d);
-  }
-  .upiid { font-family: var(--fc); font-size: 1rem; color: var(--g1); letter-spacing: 1px; }
+  .regbtns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
 
   /* ══════════════════════════
      LOCATION
@@ -524,24 +496,17 @@
   .locrow { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 22px; }
   .locc { padding: 26px 28px; }
   .loclbl { font-family: var(--fu); font-size: .6rem; letter-spacing: 3px; text-transform: uppercase; color: var(--amber); margin-bottom: 12px; }
-  .locv   { font-family: var(--fb); font-size: 1rem; color: var(--cream); line-height: 1.72; }
+  .locv { font-family: var(--fb); font-size: 1rem; color: var(--cream); line-height: 1.72; }
 
   /* ══════════════════════════
-     COORDINATORS
+     COORDINATORS — no avatar icon
   ══════════════════════════ */
-  .cog { display: grid; grid-template-columns: repeat(3,1fr); gap: 26px; }
-  .cocard { padding: 40px 28px; text-align: center; }
-  .coav {
-    width: 80px; height: 80px; border-radius: 50%;
-    background: linear-gradient(135deg, rgba(196,125,16,.2), rgba(122,77,6,.12));
-    border: 2px solid rgba(196,125,16,.26);
-    margin: 0 auto 18px; display: flex; align-items: center; justify-content: center;
-    font-size: 1.8rem; transition: all .3s;
-  }
-  .cocard:hover .coav { border-color: var(--g1); box-shadow: 0 0 24px var(--gg-sm); }
-  .corole { font-family: var(--fu); font-size: .6rem; letter-spacing: 3px; text-transform: uppercase; color: var(--amber); margin-bottom: 8px; }
-  .coname { font-family: var(--fc); font-size: 1rem; font-weight: 700; color: var(--cream); margin-bottom: 8px; }
-  .coph   { font-family: var(--fu); font-size: .9rem; color: var(--g2); }
+  .cog { display: grid; grid-template-columns: repeat(4,1fr); gap: 22px; }
+  .cocard { padding: 32px 20px; text-align: center; }
+  .co-line { width: 40px; height: 2px; margin: 0 auto 16px; background: linear-gradient(90deg, transparent, var(--g2), transparent); }
+  .corole { font-family: var(--fu); font-size: .58rem; letter-spacing: 2.5px; text-transform: uppercase; color: var(--amber); margin-bottom: 8px; }
+  .coname { font-family: var(--fc); font-size: .95rem; font-weight: 700; color: var(--cream); margin-bottom: 6px; }
+  .coph { font-family: var(--fu); font-size: .85rem; color: var(--g2); }
 
   /* ══════════════════════════
      FOOTER
@@ -549,39 +514,24 @@
   #footer { padding: 72px 28px 30px; background: linear-gradient(180deg,transparent,rgba(4,2,1,.98)); border-top: 1px solid rgba(196,125,16,.18); }
   .fttop { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 52px; padding-bottom: 48px; border-bottom: 1px solid rgba(196,125,16,.14); margin-bottom: 28px; }
   .ftbrand { font-family: var(--fd); font-size: 1.52rem; color: var(--g1); margin-bottom: 12px; text-shadow: 0 0 24px var(--gg); }
-  .ftclub  { font-family: var(--fc); font-size: .88rem; color: var(--g2); letter-spacing: 1.5px; margin-bottom: 6px; }
-  .ftaddr  { font-family: var(--fb); font-style: italic; font-size: .88rem; color: var(--cream-d); line-height: 1.88; margin-bottom: 18px; }
-  .naacb {
-    display: inline-flex; align-items: center; gap: 10px;
-    background: rgba(196,125,16,.07); border: 1px solid rgba(196,125,16,.24);
-    border-radius: 8px; padding: 10px 16px;
-    font-family: var(--fu); font-size: .7rem; color: var(--g2); letter-spacing: 1px; margin-bottom: 12px;
-  }
+  .ftclub { font-family: var(--fc); font-size: .88rem; color: var(--g2); letter-spacing: 1.5px; margin-bottom: 6px; }
+  .ftaddr { font-family: var(--fb); font-style: italic; font-size: .88rem; color: var(--cream-d); line-height: 1.88; margin-bottom: 18px; }
+  .naacb { display: inline-flex; align-items: center; gap: 10px; background: rgba(196,125,16,.07); border: 1px solid rgba(196,125,16,.24); border-radius: 8px; padding: 10px 16px; font-family: var(--fu); font-size: .7rem; color: var(--g2); letter-spacing: 1px; margin-bottom: 12px; }
   .ftlogos { display: flex; align-items: center; gap: 14px; margin-top: 18px; flex-wrap: wrap; }
-  .ftlb {
-    background: rgba(196,125,16,.05); border: 1px solid rgba(196,125,16,.18);
-    border-radius: 9px; display: flex; align-items: center; justify-content: center;
-    font-family: var(--fu); font-size: 7px; color: var(--cream-d); text-align: center; line-height: 1.25; padding: 4px;
-  }
+  .ftlb { background: rgba(196,125,16,.05); border: 1px solid rgba(196,125,16,.18); border-radius: 9px; display: flex; align-items: center; justify-content: center; font-family: var(--fu); font-size: 7px; color: var(--cream-d); text-align: center; line-height: 1.25; padding: 4px; }
   .ftlb img { width: 100%; height: 100%; object-fit: contain; }
   .fth { font-family: var(--fc); font-size: .93rem; font-weight: 700; color: var(--cream); margin-bottom: 20px; letter-spacing: 1px; }
   .ftlinks { display: flex; flex-direction: column; gap: 10px; }
   .ftlinks a { font-family: var(--fb); font-size: .9rem; color: var(--cream-d); transition: color .3s; }
   .ftlinks a:hover { color: var(--g1); }
   .socrow { display: flex; gap: 10px; margin-top: 10px; }
-  .soc {
-    width: 40px; height: 40px; border-radius: 8px;
-    background: rgba(196,125,16,.06); border: 1px solid rgba(196,125,16,.2);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1rem; transition: all .3s; color: var(--cream-d);
-  }
+  .soc { width: 40px; height: 40px; border-radius: 8px; background: rgba(196,125,16,.06); border: 1px solid rgba(196,125,16,.2); display: flex; align-items: center; justify-content: center; font-size: 1rem; transition: all .3s; color: var(--cream-d); }
   .soc:hover { border-color: var(--g1); color: var(--g1); background: rgba(196,125,16,.12); transform: translateY(-3px); }
   .ftbot { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; }
   .ftcopy { font-family: var(--fu); font-size: .72rem; color: var(--cream-d); }
   .ftcred { font-family: var(--fu); font-size: .72rem; color: var(--cream-d); text-align: right; }
   .ftcred strong { color: var(--g1); }
 
-  /* Back to top */
   #btt {
     position: fixed; bottom: 28px; right: 28px;
     width: 46px; height: 46px; border-radius: 50%;
@@ -594,57 +544,125 @@
   #btt.on { opacity: 1; pointer-events: all; }
   #btt:hover { transform: translateY(-4px); box-shadow: 0 10px 32px var(--gg); }
 
-  /* ══════════════════════════
+  /* ══════════════════════════════════════════════
      RESPONSIVE — TABLET ≤ 940
-  ══════════════════════════ */
+  ══════════════════════════════════════════════ */
   @media (max-width: 940px) {
-    .nlinks, .ncta.d { display: none; }
+    /* Hide desktop nav elements */
+    .nlinks, .ncta { display: none; }
     .ham { display: flex; }
-    .nwm-t { font-size: .62rem; letter-spacing: 2.5px; }
+
+    /* Navbar wordmark slightly smaller to avoid overlap */
+    .nwm-t { font-size: .6rem; letter-spacing: 2.5px; }
+    .nwm-s { display: none; }
+
     .about-g { grid-template-columns: 1fr; }
-    .aright  { flex-direction: row; flex-wrap: wrap; }
-    .statc   { flex: 1 1 150px; }
+    .aright { flex-direction: row; flex-wrap: wrap; }
+    .statc { flex: 1 1 150px; }
+
     .gg-g { grid-template-columns: 1fr 1fr; }
-    .gg-g .gcrd:last-child { grid-column: 1/-1; max-width: 360px; margin: 0 auto; width: 100%; }
+    .gg-g .gcrd:nth-child(3) { grid-column: 1/-1; max-width: 360px; margin: 0 auto; width: 100%; }
+
     .dtlg { grid-template-columns: repeat(2,1fr); }
-    .cog  { grid-template-columns: repeat(2,1fr); }
-    .cog .cocard:last-child { grid-column: 1/-1; max-width: 340px; margin: 0 auto; width: 100%; }
+
+    /* Faculty — 2 cols on tablet */
+    .fac-g { grid-template-columns: repeat(2,1fr); }
+    .fac-g .fac-card:last-child { grid-column: 1/-1; max-width: 360px; margin: 0 auto; width: 100%; }
+
+    /* Coordinators — 2 cols on tablet */
+    .cog { grid-template-columns: repeat(2,1fr); }
+
     .locrow { grid-template-columns: 1fr; }
-    .fttop  { grid-template-columns: 1fr 1fr; }
+    .fttop { grid-template-columns: 1fr 1fr; }
     .fttop > div:first-child { grid-column: 1/-1; }
   }
-  /* ══════════════════════════
+
+  /* ══════════════════════════════════════════════
      RESPONSIVE — MOBILE ≤ 600
-  ══════════════════════════ */
+     KEY FIXES:
+     · Navbar: hide wordmark on very small screens
+     · Hero org line: compact, wraps naturally
+     · All cards: compact horizontal layout
+  ══════════════════════════════════════════════ */
   @media (max-width: 600px) {
     :root { --nav-h: 66px; }
-    #nav  { padding: 0 16px; }
-    .lbx-met { width: 46px; height: 46px; }
-    .lbx-mit { width: 40px; height: 40px; }
-    .lbx-elc { width: 36px; height: 36px; }
-    .nwm-t { font-size: .55rem; letter-spacing: 1.5px; }
-    .nwm-s { display: none; }
-    .sec   { padding: 80px 16px; }
-    .evg   { grid-template-columns: 1fr; }
-    .gg-g  { grid-template-columns: 1fr; }
-    .gg-g .gcrd:last-child { grid-column: auto; max-width: none; }
-    .regcard { padding: 36px 20px; }
-    .regrow  { grid-template-columns: 1fr; }
-    .cog     { grid-template-columns: 1fr; }
-    .cog .cocard:last-child { grid-column: auto; max-width: none; }
-    .fttop   { grid-template-columns: 1fr; gap: 32px; }
-    .ftbot   { flex-direction: column; text-align: center; }
-    .ftcred  { text-align: center; }
-    .cd  { gap: 10px; }
-    .cdi { min-width: 66px; padding: 12px; }
-    .cdn { font-size: 1.6rem; }
-    .mapb iframe { height: 300px; }
+    #nav { padding: 0 14px; }
+
+    /* Shrink logos on mobile */
+    .lbx-met { width: 42px; height: 42px; }
+    .lbx-mit { width: 36px; height: 36px; }
+    .lbx-elc { width: 32px; height: 32px; }
+
+    /* FIX: hide the absolute-positioned wordmark on mobile to prevent overlap */
+    .nwm { display: none; }
+
+    .sec { padding: 72px 16px; }
+
+    /* FIX: Hero org line — smaller, centred, wraps gracefully */
+    .horg {
+      font-size: .52rem;
+      letter-spacing: 2px;
+      max-width: 90vw;
+      margin-left: auto; margin-right: auto;
+    }
+
+    /* Events */
+    .evg { grid-template-columns: 1fr; }
+
+    /* Guests — 1 col */
+    .gg-g { grid-template-columns: 1fr; }
+    .gg-g .gcrd:nth-child(3) { grid-column: auto; max-width: none; }
+
+    /* FIX: Guest cards — compact on mobile */
+    .gcrd { padding: 22px 20px; }
+
+    /* Faculty — 1 col */
+    .fac-g { grid-template-columns: 1fr; }
+    .fac-g .fac-card:last-child { grid-column: auto; max-width: none; }
+
+    /* FIX: Faculty cards — compact on mobile */
+    .fac-card { padding: 22px 18px; }
+
+    /* Reg */
+    .regcard { padding: 32px 18px; }
+    .regrow { grid-template-columns: 1fr; gap: 24px; }
+
+    /* Coordinators — 2 cols on mobile (compact) */
+    .cog { grid-template-columns: repeat(2,1fr); gap: 12px; }
+
+    /* FIX: Coordinator cards — COMPACT on mobile only */
+    .cocard { padding: 18px 14px; }
+    .co-line { margin-bottom: 10px; }
+    .corole { font-size: .52rem; letter-spacing: 2px; margin-bottom: 5px; }
+    .coname { font-size: .82rem; margin-bottom: 4px; }
+    .coph   { font-size: .76rem; }
+
+    .locrow { grid-template-columns: 1fr; }
+    .mapb iframe { height: 280px; }
+
+    .fttop { grid-template-columns: 1fr; gap: 32px; }
+    .fttop > div:first-child { grid-column: auto; }
+    .ftbot { flex-direction: column; text-align: center; }
+    .ftcred { text-align: center; }
+
+    .cd { gap: 10px; }
+    .cdi { min-width: 64px; padding: 12px; }
+    .cdn { font-size: 1.55rem; }
+
     .aright { flex-direction: column; }
-    #btt { bottom: 20px; right: 20px; width: 42px; height: 42px; }
+    #btt { bottom: 18px; right: 18px; width: 42px; height: 42px; }
+
+    /* Details — 2 col on mobile */
+    .dtlg { grid-template-columns: repeat(2,1fr); }
+    .dtlc { padding: 24px 14px; }
+    .dtlico { font-size: 2rem; }
   }
-  @media (max-width: 400px) {
-    .htitle { font-size: 2.8rem; }
+
+  @media (max-width: 380px) {
+    .htitle { font-size: 2.6rem; }
     .dtlg   { grid-template-columns: 1fr; }
+    /* Coordinators — 1 col on very small */
+    .cog    { grid-template-columns: 1fr; }
   }
   </style>
 </head>
@@ -657,8 +675,9 @@
      NAVIGATION
 ════════════════════ -->
 <nav id="nav">
+  <!-- LEFT: Institutional logos — P1 & P2 -->
   <div class="nl">
-    <!-- Priority 1: MET Trust — largest, primary institutional authority -->
+    <!-- Priority 1: MET Trust -->
     <div class="lbx lbx-met" title="Maharaja Education Trust">
       <img src="assets/logo-met.png" alt="Maharaja Education Trust">
     </div>
@@ -668,13 +687,15 @@
     </div>
   </div>
 
-  <div class="nwm">
-    <span class="nwm-t"><b>ELOQUENCE</b></span>
-    <span class="nwm-s"></span>
+  <!-- CENTRE: Wordmark — hidden on mobile via CSS -->
+  <div class="nwm" aria-hidden="true">
+    <span class="nwm-t">ELOQUENCE 2026</span>
+    <span class="nwm-s">Literary Competition</span>
   </div>
 
+  <!-- RIGHT: ELC + nav links + CTA + hamburger -->
   <div class="nr">
-    <nav class="nlinks">
+    <nav class="nlinks" aria-label="Page sections">
       <a href="#about">About</a>
       <a href="#events">Events</a>
       <a href="#guests">Guests</a>
@@ -682,27 +703,32 @@
       <a href="#registration">Register</a>
       <a href="#location">Location</a>
     </nav>
-    <!-- Priority 4: ELC Club — event organiser, right-aligned -->
+    <!-- Priority 4: ELC Club -->
     <div class="lbx lbx-elc" title="English Literary Club">
-    <img src="assets/logo-elc.jpeg" alt="English Literary Club"> 
-      
+      <img src="assets/logo-elc.jpeg" alt="English Literary Club">
     </div>
-    <a href="#registration" class="ncta d">Register</a>
-    <button class="ham" id="ham" aria-label="Toggle menu" aria-expanded="false">
+    <a href="#registration" class="ncta">Register</a>
+    <!-- Hamburger button -->
+    <button class="ham" id="ham" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </div>
 </nav>
 
-<div id="mnav">
+<!-- Mobile Drawer — FIX: ✕ close button added -->
+<div id="mnav" role="dialog" aria-label="Navigation menu" aria-modal="true">
+  <!-- ✕ Close button — always visible inside drawer -->
+  <button id="mnav-close" aria-label="Close menu">✕</button>
+
   <a href="#about">About</a>
   <a href="#events">Events</a>
   <a href="#guests">Guests</a>
   <a href="#details">Details</a>
   <a href="#rules">Guidelines</a>
+  <a href="#faculty">Committee</a>
   <a href="#registration">Register</a>
   <a href="#location">Location</a>
-  <a href="#registration" class="btn-g" style="margin-top:16px;font-size:.76rem;">✦ Register Now</a>
+  <a href="#registration" class="btn-g" style="margin-top:14px;font-size:.74rem;">✦ Register Now</a>
 </div>
 
 
@@ -710,12 +736,13 @@
      HERO
 ════════════════════ -->
 <section id="hero">
-  <div class="flt">🪶</div>
-  <div class="flt">📖</div>
-  <div class="flt">✒️</div>
-  <div class="hburst"></div>
+  <div class="flt" aria-hidden="true">🪶</div>
+  <div class="flt" aria-hidden="true">📖</div>
+  <div class="flt" aria-hidden="true">✒️</div>
+  <div class="hburst" aria-hidden="true"></div>
 
   <div class="hi">
+    <!-- FIX: org line simplified — wraps cleanly on mobile -->
     <p class="horg rv">
       ✦ Department of English &nbsp;·&nbsp; English Literary Club &nbsp;·&nbsp;
       <span>MIT First Grade College</span>
@@ -729,17 +756,17 @@
     <!-- Replace with official tagline -->
     <p class="htag rv d2">Inter-College Literary Competition</p>
 
-    <!-- A3 LANDSCAPE Poster — 420:297 ratio — Replace with official poster -->
+    <!-- A3 LANDSCAPE Poster — replace with official poster -->
     <!-- Replace this block with official event poster image -->
     <div class="poster-w rv d2">
-      <!-- Uncomment when poster is ready: -->
-      <img src="assets/poster.png" alt="ELOQUENCE 2026 Official Poster"> 
-     <!-- <div class="poster-ico"></div> -->
-      <!-- <p class="poster-ph"></p> -->
-     <!-- <p style="font-family:var(--fu);font-size:.6rem;color:var(--cream-d);opacity:.45;letter-spacing:2.5px;"></p> -->
+      <img src="assets/poster.png" alt="ELOQUENCE 2026 Official Poster">
+      <!-- Placeholder shown if image missing:
+      <div class="poster-ico">🪶</div>
+      <p class="poster-ph">OFFICIAL POSTER · A3 LANDSCAPE</p>
+      -->
     </div>
 
-    <!-- Countdown to 30 March 2026, 9:15 AM IST (time from official poster) -->
+    <!-- Countdown — event date: 1 April 2026, 9:15 AM IST -->
     <div class="cdw rv d3">
       <p class="cdlbl">Event Commences In</p>
       <div class="cd">
@@ -752,7 +779,6 @@
 
     <div class="hctas rv d4">
       <a href="#registration" class="btn-g">✦ Register Now</a>
-      <a href="#events"       class="btn-o">Explore Events</a>
     </div>
   </div>
 </section>
@@ -770,7 +796,7 @@
         <div class="stag rv">✦ About the Event</div>
         <h2 class="sh rv">A Celebration of<br><em>Literary Excellence</em></h2>
         <div class="ornl rv"><span>✦</span></div>
-        <!-- Replace this with official event description -->
+        <!-- Replace with official event description -->
         <p class="apar rv d1">ELOQUENCE 2026 is an inter-college literary competition organised by the English Literary Club of MIT First Grade College, Mysuru — a grand arena where the power of words takes centre stage.</p>
         <!-- Replace with official event description -->
         <p class="apar rv d2">Bringing together the brightest literary minds from colleges across the region, ELOQUENCE is a platform to showcase creativity, wit, and mastery of English through uniquely crafted competitive rounds. A prestigious tradition of the Department of English.</p>
@@ -802,19 +828,19 @@
 ════════════════════ -->
 <section id="events" class="sec" style="background:linear-gradient(180deg,transparent,rgba(196,125,16,.03),transparent);">
   <div class="mw">
-    <div class="center">
-      <div class="stag rv">✦ Competition Rounds</div>
-      <h2 class="sh rv" style="margin-bottom:8px;">The Four <em>Events</em></h2>
-      <div class="ornl rv" style="margin-bottom:0;"><span>✦</span></div>
-    
-    <p class="ssub center rv d1" >Four meticulously crafted rounds to test vocabulary, wit, precision, and the art of persuasion.</p>
-      </div>
+    <div class="center rv">
+      <div class="stag">✦ Competition Rounds</div>
+      <h2 class="sh" style="margin-bottom:8px;">The Four <em>Events</em></h2>
+      <div class="ornl" style="margin-bottom:0;"><span>✦</span></div>
+    <p class="ssub center rv d1">Four meticulously crafted rounds to test vocabulary, wit, precision, and the art of persuasion.</p>
+    </div>
+
     <div class="evg">
       <div class="oc evc rv d1">
         <span class="evnum">01</span>
         <div class="eviw">
-          <!-- Replace with official event icon: <img src="assets/icon-spellbound.png" alt="Spell Bound"> -->
-          🔡
+          <img src="assets/Spell Bound logo.png" alt="Spell Bound"> 
+          
         </div>
         <h3 class="evname">Spell Bound</h3>
         <!-- Replace with official round description -->
@@ -825,8 +851,8 @@
       <div class="oc evc rv d2">
         <span class="evnum">02</span>
         <div class="eviw">
-          <!-- Replace with official event icon: <img src="assets/icon-headsup.png" alt="Heads Up"> -->
-          💡
+          <img src="assets/Heads Up Logo.png" alt="Heads Up"> 
+          
         </div>
         <h3 class="evname">Heads Up</h3>
         <!-- Replace with official round description -->
@@ -837,20 +863,20 @@
       <div class="oc evc rv d3">
         <span class="evnum">03</span>
         <div class="eviw">
-          <!-- Replace with official event icon: <img src="assets/icon-bluffmaster.png" alt="Bluff Master"> -->
-          🎭
+          <img src="assets/bluff_master.png" alt="Bluff Master">
+          
         </div>
         <h3 class="evname">Bluff Master</h3>
         <!-- Replace with official round description -->
-        <p class="evdesc">The ultimate test of storytelling and persuasion — craft convincing narratives, real or fictional, and challenge others to distinguish inspired truth from magnificent bluff.</p>
+        <p class="evdesc">The ultimate test of storytelling and persuasion — craft convincing narratives, real or fictional, and challenge others to distinguish truth from magnificent bluff.</p>
         <span class="evtag">Storytelling · Strategy</span>
       </div>
 
       <div class="oc evc rv d4">
         <span class="evnum">04</span>
         <div class="eviw">
-          <!-- Replace with official event icon: <img src="assets/icon-precis.png" alt="Precis Writing"> -->
-          ✍️
+          <img src="assets/Precis_writing_logo.png" alt="Precis Writing">
+          
         </div>
         <h3 class="evname">Precis Writing</h3>
         <!-- Replace with official round description -->
@@ -866,41 +892,52 @@
 
 <!-- ════════════════════
      GUESTS
+     HOW TO REDUCE CARDS:
+     · To show 2 guests: delete the block marked "GUEST CARD 3"
+     · To show 1 guest:  delete "GUEST CARD 2" and "GUEST CARD 3"
+     · The grid adjusts automatically. On mobile it's always 1 column.
 ════════════════════ -->
 <section id="guests" class="sec">
   <div class="mw">
-    <div class="center">
-      <div class="stag rv">✦ Distinguished Guests</div>
-      <h2 class="sh rv" style="margin-bottom:8px;">Our <em>Honoured Guests</em></h2>
-      <div class="ornl rv" style="margin-bottom:0;"><span>✦</span></div>
+    <div class="center rv">
+      <div class="stag">✦ Distinguished Guests</div>
+      <h2 class="sh" style="margin-bottom:8px;">Our <em>Honoured Guests</em></h2>
+      <div class="ornl" style="margin-bottom:0;"><span>✦</span></div>
     </div>
     <p class="ssub center rv d1" style="margin-bottom:44px;">&nbsp;</p>
 
     <div class="gg-g">
+
+      <!-- GUEST CARD 1 -->
       <div class="oc gcrd rv d1">
-        <div class="gav">👤<!-- Add Chief Guest Name --><!-- <img src="assets/chief-guest.jpg" alt="Chief Guest"> --></div>
+        <div class="gcrd-line"></div>
         <div class="grole">Chief Guest</div>
         <!-- Add Chief Guest Name -->
         <h3 class="gname">To Be Announced</h3>
         <!-- Add Chief Guest Designation -->
         <p class="gdesig">[ Designation &amp; Institution ]</p>
       </div>
+
+      <!-- GUEST CARD 2 -->
       <div class="oc gcrd rv d2">
-        <div class="gav">👤<!-- Add Speaker Name --><!-- <img src="assets/speaker.jpg" alt="Guest Speaker"> --></div>
+        <div class="gcrd-line"></div>
         <div class="grole">Guest Speaker</div>
         <!-- Add Speaker Name -->
         <h3 class="gname">To Be Announced</h3>
         <!-- Add Speaker Designation -->
         <p class="gdesig">[ Designation &amp; Institution ]</p>
       </div>
+
+      <!-- GUEST CARD 3 — delete this entire block to show only 2 guests -->
       <div class="oc gcrd rv d3">
-        <div class="gav">👤<!-- Add Special Guest Name --><!-- <img src="assets/special-guest.jpg" alt="Special Guest"> --></div>
+        <div class="gcrd-line"></div>
         <div class="grole">Special Guest</div>
         <!-- Add Special Guest Name -->
         <h3 class="gname">To Be Announced</h3>
         <!-- Add Special Guest Designation -->
         <p class="gdesig">[ Designation &amp; Institution ]</p>
       </div>
+
     </div>
   </div>
 </section>
@@ -909,22 +946,22 @@
 
 
 <!-- ════════════════════
-     DETAILS
+     EVENT DETAILS
 ════════════════════ -->
 <section id="details" class="sec" style="background:linear-gradient(180deg,transparent,rgba(196,125,16,.03),transparent);">
   <div class="mw">
-    <div class="center">
-      <div class="stag rv">✦ Event Details</div>
-      <h2 class="sh rv" style="margin-bottom:8px;">When &amp; <em>Where</em></h2>
-      <div class="ornl rv" style="margin-bottom:0;"><span>✦</span></div>
+    <div class="center rv">
+      <div class="stag">✦ Event Details</div>
+      <h2 class="sh" style="margin-bottom:8px;">When &amp; <em>Where</em></h2>
+      <div class="ornl" style="margin-bottom:0;"><span>✦</span></div>
     </div>
     <p class="ssub center rv d1" style="margin-bottom:44px;">&nbsp;</p>
 
     <div class="dtlg">
       <!-- Add event date here -->
-      <div class="oc dtlc rv d1"><span class="dtlico">📅</span><div class="dtllbl">Date</div><div class="dtlval">01st April<br>2026</div></div>
+      <div class="oc dtlc rv d1"><span class="dtlico">📅</span><div class="dtllbl">Date</div><div class="dtlval">1st April<br>2026</div></div>
       <div class="oc dtlc rv d2"><span class="dtlico">🗓️</span><div class="dtllbl">Day</div><div class="dtlval">Wednesday</div></div>
-      <!-- Add event time (9:15 AM per official poster) -->
+      <!-- Add event time -->
       <div class="oc dtlc rv d3"><span class="dtlico">⏰</span><div class="dtllbl">Report By</div><div class="dtlval">9:15 AM</div></div>
       <!-- Add venue -->
       <div class="oc dtlc rv d4"><span class="dtlico">📍</span><div class="dtllbl">Venue</div><div class="dtlval">MIT First Grade College, Mysuru</div></div>
@@ -936,26 +973,26 @@
 
 
 <!-- ════════════════════
-     RULES
+     GENERAL INSTRUCTIONS
 ════════════════════ -->
 <section id="rules" class="sec">
   <div class="rwrap">
-    <div class="center">
-      <div class="stag rv">✦ Guidelines</div>
-      <h2 class="sh rv" style="margin-bottom:8px;">General <em>Instructions</em></h2>
-      <div class="ornl rv" style="margin-bottom:28px;"><span>✦</span></div>
+    <div class="center rv">
+      <div class="stag">✦ Guidelines</div>
+      <h2 class="sh" style="margin-bottom:8px;">General <em>Instructions</em></h2>
+      <div class="ornl" style="margin-bottom:28px;"><span>✦</span></div>
     </div>
     <div class="rlist">
-      <div class="ri rv d1"><span class="rn">01</span><p class="rt"><b>Reporting & Registration:</b> All participants must report to the venue at <em class="hg">9:15 AM</em> and complete registration with the event coordinators before the competition begins.</em>.</p></div>
-      <div class="ri rv d1"><span class="rn">02</span><p class="rt"><b>Team Requirement:</b> Each event will be conducted in teams of <em class="hg">two participants.</em> </p></div>
-      <div class="ri rv d2"><span class="rn">03</span><p class="rt"><b>Registration Fee:</b> A non-refundable registration fee of  <em class="hg"> ₹250</em> per team must be paid at the time of registration.</p></div>
+      <div class="ri rv d1"><span class="rn">01</span><p class="rt"><b>Reporting &amp; Registration:</b> All participants must report to the venue at <em class="hg">9:15 AM</em> and complete registration with the event coordinators before the competition begins.</p></div>
+      <div class="ri rv d1"><span class="rn">02</span><p class="rt"><b>Team Requirement:</b> Each event will be conducted in teams of <em class="hg">two participants</em>.</p></div>
+      <div class="ri rv d2"><span class="rn">03</span><p class="rt"><b>Registration Fee:</b> A non-refundable registration fee of <em class="hg">₹250</em> per team must be paid at the time of registration.</p></div>
       <div class="ri rv d2"><span class="rn">04</span><p class="rt"><b>Identification:</b> Participants must carry a valid <em class="hg">college ID</em> card and present it to the organizers whenever requested.</p></div>
-      <div class="ri rv d3"><span class="rn">05</span><p class="rt"><b>Registration Details:</b> Participants must provide accurate <em class="hg">registration details</em> (such as name, email ID, mobile number and other required information). Ensure the email ID is correct, as the <em class="hg">participation certificate</em> will be sent to that address.</p></div>
-      <div class="ri rv d3"><span class="rn">06</span><p class="rt"><b>Discipline, Conduct & Instructions:</b> Participants must <em class="hg">maintain</em> discipline, decorum, and professional behavior and strictly <em class="hg">follow</em> all instructions given by the organizers and judges at all times.</p></div>
+      <div class="ri rv d3"><span class="rn">05</span><p class="rt"><b>Registration Details:</b> Participants must provide accurate <em class="hg">registration details</em>. Ensure the email ID is correct, as the <em class="hg">participation certificate</em> will be sent to that address.</p></div>
+      <div class="ri rv d3"><span class="rn">06</span><p class="rt"><b>Discipline &amp; Conduct:</b> Participants must <em class="hg">maintain</em> discipline, decorum, and professional behavior and strictly <em class="hg">follow</em> all instructions given by the organizers and judges at all times.</p></div>
       <div class="ri rv d4"><span class="rn">07</span><p class="rt"><b>Time Regulations:</b> The <em class="hg">time limit</em> assigned for each round must be strictly followed by all teams.</p></div>
       <div class="ri rv d4"><span class="rn">08</span><p class="rt"><b>Prohibited Actions:</b> Mobile phones are <em class="hg">strictly prohibited</em> during the event. Any form of malpractice, unfair means, or misconduct will result in immediate disqualification.</p></div>
-      <div class="ri rv d4"><span class="rn">09</span><p class="rt"><b>Event Modifications:</b> The organizing committee <em class="hg">reserves the right</em> to modify rules, schedules, or add/remove rounds depending on time, participation, or other necessary circumstances.</em>.</p></div>
-      <div class="ri rv d4"><span class="rn">10</span><p class="rt"><b>Judges’ Decision:</b> The decision of the judges will be <em class="hg">final and binding</em>, and all results will be determined solely by the judging panel.</p></div>
+      <div class="ri rv d4"><span class="rn">09</span><p class="rt"><b>Event Modifications:</b> The organizing committee <em class="hg">reserves the right</em> to modify rules, schedules, or add/remove rounds depending on time, participation, or other necessary circumstances.</p></div>
+      <div class="ri rv d4"><span class="rn">10</span><p class="rt"><b>Judges' Decision:</b> The decision of the judges will be <em class="hg">final and binding</em>, and all results will be determined solely by the judging panel.</p></div>
     </div>
   </div>
 </section>
@@ -964,14 +1001,59 @@
 
 
 <!-- ════════════════════
-     REGISTRATION
+     ORGANISING COMMITTEE (Faculty)
 ════════════════════ -->
-<section id="registration" class="sec" style="background:linear-gradient(180deg,transparent,rgba(196,125,16,.03),transparent);">
+<section id="faculty" class="sec" style="background:linear-gradient(180deg,transparent,rgba(196,125,16,.03),transparent);">
+  <div class="mw" style="max-width:960px;">
+    <div class="center rv">
+      <div class="stag">✦ Organising Committee</div>
+      <h2 class="sh" style="margin-bottom:8px;">The <em>Faculty</em></h2>
+      <div class="ornl" style="margin-bottom:0;"><span>✦</span></div>
+    <p class="ssub center rv d1">Guiding ELOQUENCE 2026 with expertise and dedication.</p>
+    </div>
+
+    <div class="fac-g">
+
+      <!-- Faculty Card 1 -->
+      <div class="oc fac-card rv d1">
+        <div class="fac-line"></div>
+        <div class="fac-role">Principal &amp; Chairperson</div>
+        <div class="fac-name">Dr. Chandrajit Mohan</div>
+        <div class="fac-desig">MIT First Grade College, Mysuru</div>
+      </div>
+
+      <!-- Faculty Card 2 -->
+      <div class="oc fac-card rv d2">
+        <div class="fac-line"></div>
+        <div class="fac-role">Organizing Secretary &amp; Co-Chairperson</div>
+        <div class="fac-name">Prof. Reena Sateesh</div>
+        <div class="fac-desig">Head, Department of English</div>
+      </div>
+
+      <!-- Faculty Card 3 -->
+      <div class="oc fac-card rv d3">
+        <div class="fac-line"></div>
+        <div class="fac-role">Convenor</div>
+        <div class="fac-name">Rakshith Kesari T S</div>
+        <div class="fac-desig">Assistant Professor, Dept. of English</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+
+<!-- ════════════════════
+     REGISTRATION — simplified (no UPI)
+════════════════════ -->
+<section id="registration" class="sec">
   <div class="regwrap">
-    <div class="center">
-      <div class="stag rv">✦ Join the Competition</div>
-      <h2 class="sh rv" style="margin-bottom:8px;">Register <em>Now</em></h2>
-      <div class="ornl rv" style="margin-bottom:0;"><span>✦</span></div>
+    <div class="center rv">
+      <div class="stag">✦ Join the Competition</div>
+      <h2 class="sh" style="margin-bottom:8px;">Register <em>Now</em></h2>
+      <div class="ornl" style="margin-bottom:0;"><span>✦</span></div>
     <p class="ssub center rv d1">Secure your spot at ELOQUENCE 2026. Form your team and take the stage.</p>
     </div>
 
@@ -990,21 +1072,9 @@
           <div class="rgi-note">Non-refundable</div>
         </div>
       </div>
+      <!-- Add registration form link here -->
       <div class="regbtns">
-        <!-- Add registration form link here -->
         <a href="#" class="btn-g">✦ Register Now</a>
-        <a href="#" class="btn-o">Pay via UPI</a>
-      </div>
-      <div class="upizone">
-        <p class="upilbl">Scan &amp; Pay · UPI</p>
-        <div class="qrb">
-          <span style="font-size:2rem;">📱</span>
-          <!-- Add payment QR image here: <img src="assets/qr.png" alt="UPI QR Code"> -->
-          <span>QR Code Here</span>
-        </div>
-        <!-- Add UPI ID here -->
-        <p style="font-family:var(--fu);font-size:.58rem;color:var(--cream-d);letter-spacing:3px;text-transform:uppercase;margin-bottom:8px;">UPI ID</p>
-        <p class="upiid">[ Add UPI ID Here ]</p>
       </div>
     </div>
   </div>
@@ -1016,12 +1086,12 @@
 <!-- ════════════════════
      LOCATION
 ════════════════════ -->
-<section id="location" class="sec">
+<section id="location" class="sec" style="background:linear-gradient(180deg,transparent,rgba(196,125,16,.03),transparent);">
   <div class="mw">
-    <div class="center">
-      <div class="stag rv">✦ Find Us</div>
-      <h2 class="sh rv" style="margin-bottom:8px;">Venue &amp; <em>Location</em></h2>
-      <div class="ornl rv" style="margin-bottom:0;"><span>✦</span></div>
+    <div class="center rv">
+      <div class="stag">✦ Find Us</div>
+      <h2 class="sh" style="margin-bottom:8px;">Venue &amp; <em>Location</em></h2>
+      <div class="ornl" style="margin-bottom:0;"><span>✦</span></div>
     </div>
     <p class="ssub center rv d1" style="margin-bottom:44px;">&nbsp;</p>
 
@@ -1068,41 +1138,72 @@
 
 
 <!-- ════════════════════
-     COORDINATORS
+     EVENT COORDINATORS
 ════════════════════ -->
-<section id="coordinators" class="sec" style="background:linear-gradient(180deg,transparent,rgba(196,125,16,.03),transparent);">
-  <div class="mw" style="max-width:960px;">
-    <div class="center">
-      <div class="stag rv">✦ Reach Out</div>
-      <h2 class="sh rv" style="margin-bottom:8px;">Event <em>Coordinators</em></h2>
-      <div class="ornl rv" style="margin-bottom:0;"><span>✦</span></div>
-    <p class="ssub center rv d1">Have a question? Reach out to our coordinators directly.</p>
-    </div>
+<section id="coordinators" class="sec">
+  <div class="mw">
+    <div class="center rv">
+      <div class="stag">✦ Reach Out</div>
+      <h2 class="sh" style="margin-bottom:8px;">Event <em>Coordinators</em></h2>
+      <div class="ornl" style="margin-bottom:0;"><span>✦</span></div>
 
+    <p class="ssub center rv d1">Have a question? Reach out to our coordinators directly.</p>
+        <p class="ssub center rv d1">To write us
+<a href="mailto:englishliteraryclubmit2025@gmail.com?cc=chethan7505@gmail.com&subject=Inquiry%20regarding%20the%20Eloquence%202026"
+target="_blank"
+rel="noopener"
+style="font-family:var(--fc);font-size:.85rem;color:var(--g1);">
+Click here. </p>
+</div>
+</a>
     <div class="cog">
       <div class="oc cocard rv d1">
-        <div class="coav">👤</div>
+        <div class="co-line"></div>
         <div class="corole">President</div>
-        <!-- Add coordinator name -->
         <div class="coname">V Sunil</div>
-        <!-- Add phone number -->
         <div class="coph">+91 8892163140</div>
       </div>
-      <div class="oc cocard rv d2">
-        <div class="coav">👤</div>
+      <div class="oc cocard rv d3">
+        <div class="co-line"></div>
         <div class="corole">Communication Chair</div>
-        <!-- Add coordinator name -->
         <div class="coname">Chethan Chirag M</div>
-        <!-- Add phone number -->
         <div class="coph">+91 8277362652</div>
       </div>
-      <div class="oc cocard rv d3">
-        <div class="coav">👤</div>
-        <div class="corole">Event Coordinator</div>
-        <!-- Add coordinator name -->
+      <div class="oc cocard rv d4">
+        <div class="co-line"></div>
+        <div class="corole">Secretary</div>
+        <div class="coname">Jayanth Kumar B N</div>
+        <div class="coph">+91 7829598603</div>
+      </div>
+      <div class="oc cocard rv d2">
+        <div class="co-line"></div>
+        <div class="corole">Programming Chair</div>
+        <div class="coname">Rudani Jaykumar T</div>
+        <div class="coph">+91 8660968345</div>
+      </div>
+      <div class="oc cocard rv d4">
+        <div class="co-line"></div>
+        <div class="corole">Co-ordinator</div>
+        <div class="coname">Sanjan Kumar S</div>
+        <div class="coph">+91 7795268922</div>
+      </div>
+      <div class="oc cocard rv d2">
+        <div class="co-line"></div>
+        <div class="corole">Vice President</div>
+        <div class="coname">Rakshana N</div>
+        <div class="coph"></div>
+      </div>
+      <div class="oc cocard rv d2">
+        <div class="co-line"></div>
+        <div class="corole">Co-ordinator</div>
         <div class="coname">Harshitha sri</div>
-        <!-- Add phone number -->
-        <div class="coph">+91 9590887893</div>
+        <div class="coph"></div>
+      </div>
+      <div class="oc cocard rv d2">
+        <div class="co-line"></div>
+        <div class="corole">Organizing Secretary</div>
+        <div class="coname">Nisarga</div>
+        <div class="coph"></div>
       </div>
     </div>
   </div>
@@ -1127,17 +1228,16 @@
           Industrial Suburb, Mānandavadi Road<br>
           Mysuru – 570008, Karnataka
         </p>
-        <!-- NAAC — Priority 3: Accreditation credential, lives in footer -->
+        <!-- NAAC — Priority 3: accreditation credential, footer only -->
         <div class="naacb">
-          <!-- <img src="assets/logo-naac.png" alt="NAAC" style="height:22px;"> -->
           🎓 NAAC Accredited &nbsp;·&nbsp; <strong style="color:var(--g1);">A Grade</strong>
         </div>
-        <!-- Footer logos — priority descending: MET > MIT > NAAC > ELC -->
+        <!-- Footer logos — priority: MET > MIT > NAAC > ELC -->
         <div class="ftlogos">
-          <div class="ftlb" style="width:52px;height:52px;"> <img src="assets/logo-met.png" alt="MET"> </div>
-          <div class="ftlb" style="width:46px;height:46px;"> <img src="assets/logo-mit.png" alt="MIT"> </div>
-          <div class="ftlb" style="width:42px;height:42px;"><!-- <img src="assets/logo-naac.png" alt="NAAC"> -->NAAC<br>A</div>
-          <div class="ftlb" style="width:38px;height:38px;"> <img src="assets/logo-elc.jpeg" alt="ELC"> </div>
+          <div class="ftlb" style="width:52px;height:52px;"><img src="assets/logo-met.png" alt="MET"></div>
+          <div class="ftlb" style="width:46px;height:46px;"><img src="assets/logo-mit.png" alt="MIT"></div>
+          <div class="ftlb" style="width:42px;height:42px;"><img src="assets/NAAC-Logo.png" alt="NAAC"><br></div>
+          <div class="ftlb" style="width:38px;height:38px;"><img src="assets/logo-elc.jpeg" alt="ELC"></div>
         </div>
       </div>
 
@@ -1149,6 +1249,7 @@
           <a href="#guests">Distinguished Guests</a>
           <a href="#details">Event Details</a>
           <a href="#rules">General Guidelines</a>
+          <a href="#faculty">Organising Committee</a>
           <a href="#registration">Register Now</a>
           <a href="#location">Location &amp; Map</a>
         </div>
@@ -1157,18 +1258,29 @@
       <div>
         <div class="fth">Connect</div>
         <p style="font-family:var(--fb);font-style:italic;font-size:.9rem;color:var(--cream-d);margin-bottom:18px;line-height:1.65;">
-          Follow the English Literary Club for updates and event highlights.
+          Follow us for updates and event highlights.
         </p>
-        <div class="socrow">
-          <!-- Add social URLs here -->
-          <a href="#" class="soc" title="Instagram">📸</a>
-          <a href="#" class="soc" title="Facebook">📘</a>
-          <a href="#" class="soc" title="WhatsApp">💬</a>
-        </div>
+<a href="mailto:englishliteraryclubmit2025@gmail.com"
+target="_blank"
+rel="noopener"
+style="font-family:var(--fc);font-size:.85rem;color:var(--g1);">
+englishliteraryclubmit2025@gmail.com
+</a>
         <div style="margin-top:28px;">
           <div class="fth" style="font-size:.82rem;margin-bottom:8px;">Institution</div>
           <a href="https://www.mitfgc.in" target="_blank" rel="noopener" style="font-family:var(--fc);font-size:.85rem;color:var(--g1);">www.mitfgc.in</a>
         </div>
+        <div class="socrow">
+          <!-- Add social URLs here -->
+<a href="https://www.instagram.com/mitfgc" class="soc instagram" title="Instagram">
+  <i class="fa-brands fa-instagram"></i>
+</a>
+
+<a href="https://www.facebook.com/MITFGC/" class="soc facebook" title="Facebook">
+  <i class="fa-brands fa-facebook"></i>
+</a>
+        </div>
+
       </div>
     </div>
 
@@ -1196,7 +1308,7 @@
    2. Gold Particle System
    3. Scroll Progress
    4. Navbar Scroll
-   5. Hamburger / Mobile Nav
+   5. Hamburger / Mobile Nav (with X close)
    6. Countdown Timer
    7. Scroll Reveal
    8. Back to Top
@@ -1215,21 +1327,22 @@
     if(c&&s&&(k==='C'||k==='c')){e.preventDefault();return false;}
     if(c&&(k==='U'||k==='u')){e.preventDefault();return false;}
   });
-  var _o=false; 
+  var _o=false;
   setInterval(function(){
     var t=performance.now();
     // eslint-disable-next-line no-debugger
+    debugger;
     if(performance.now()-t>80){
       if(!_o){_o=true;document.body.innerHTML='<div style="display:flex;align-items:center;justify-content:center;min-height:100vh;background:#080503;color:#e8a832;font-family:serif;font-size:1.4rem;text-align:center;padding:32px;">⚠️<br><br>Access Restricted</div>';}
     }else{_o=false;}
   },2000);
 }());
 
-// 2. GOLD PARTICLE SYSTEM — poster-accurate shimmer
+// 2. GOLD PARTICLE SYSTEM
 (function(){
   var cv=document.getElementById('cv'),ctx=cv.getContext('2d');
   var W,H,pts=[];
-  var N=window.innerWidth<600?75:145;
+  var N=window.innerWidth<600?70:140;
   var C=['245,200,66','232,168,50','196,125,16','240,180,80','255,215,115','210,155,45'];
   function resize(){W=cv.width=window.innerWidth;H=cv.height=window.innerHeight;}
   resize();
@@ -1257,7 +1370,6 @@
       ctx.arc(p.x,p.y,p.rad,0,Math.PI*2);
       ctx.fillStyle='rgba('+p.col+','+p.op+')';
       ctx.fill();
-      // Larger particles get a soft glow
       if(p.rad>1.2){
         ctx.beginPath();
         ctx.arc(p.x,p.y,p.rad*3,0,Math.PI*2);
@@ -1267,7 +1379,6 @@
         ctx.fillStyle=g; ctx.fill();
       }
     }
-    // Constellation lines
     for(var i=0;i<pts.length;i++){
       for(var j=i+1;j<pts.length;j++){
         var dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y;
@@ -1302,22 +1413,45 @@
   },{passive:true});
 }());
 
-// 5. HAMBURGER
+// 5. HAMBURGER + MOBILE DRAWER — FIX: added X close button logic
 (function(){
-  var ham=document.getElementById('ham'),mnav=document.getElementById('mnav');
-  var links=mnav.querySelectorAll('a');
-  function close(){ham.classList.remove('on');mnav.classList.remove('on');document.body.style.overflow='';ham.setAttribute('aria-expanded','false');}
-  ham.addEventListener('click',function(){
-    var o=ham.classList.toggle('on');
-    mnav.classList.toggle('on',o);
-    document.body.style.overflow=o?'hidden':'';
-    ham.setAttribute('aria-expanded',String(o));
+  var ham       = document.getElementById('ham');
+  var mnav      = document.getElementById('mnav');
+  var closeBtn  = document.getElementById('mnav-close');
+  var links     = mnav.querySelectorAll('a');
+
+  function openMenu(){
+    ham.classList.add('on');
+    mnav.classList.add('on');
+    document.body.style.overflow = 'hidden';
+    ham.setAttribute('aria-expanded','true');
+  }
+
+  function closeMenu(){
+    ham.classList.remove('on');
+    mnav.classList.remove('on');
+    document.body.style.overflow = '';
+    ham.setAttribute('aria-expanded','false');
+  }
+
+  ham.addEventListener('click', function(){
+    if(ham.classList.contains('on')) closeMenu();
+    else openMenu();
   });
-  links.forEach(function(l){l.addEventListener('click',close);});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+
+  // ✕ button closes drawer
+  closeBtn.addEventListener('click', closeMenu);
+
+  // Clicking a link also closes drawer
+  links.forEach(function(l){ l.addEventListener('click', closeMenu); });
+
+  // Escape key closes drawer
+  document.addEventListener('keydown', function(e){
+    if(e.key==='Escape') closeMenu();
+  });
 }());
 
-// 6. COUNTDOWN — 30 March 2026 9:15 AM IST (from official poster)
+// 6. COUNTDOWN — event: 1 April 2026, 9:15 AM IST
 (function(){
   var t=new Date('2026-04-01T09:15:00+05:30').getTime();
   var d=document.getElementById('cdD'),h=document.getElementById('cdH'),
