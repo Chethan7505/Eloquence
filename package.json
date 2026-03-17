@@ -1,0 +1,27 @@
+{
+  "name": "eloquence",
+  "version": "1.0.0",
+  "description": "ELOQUENCE 2026 - Inter-college Literary Competition website",
+  "main": "index.js",
+  "scripts": {
+    "build": "vite build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chethan7505/Eloquence.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Chethan7505/Eloquence/issues"
+  },
+  "homepage": "https://github.com/Chethan7505/Eloquence#readme",
+  "dependencies": {
+    "@vercel/speed-insights": "^2.0.0"
+  },
+  "devDependencies": {
+    "vite": "^8.0.0"
+  }
+}
